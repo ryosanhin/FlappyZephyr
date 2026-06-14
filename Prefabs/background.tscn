@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b0wsrg3s68hlp"]
+
+[ext_resource type="Texture2D" uid="uid://cdjdtpvs5yylg" path="res://Sprites/Utilities.png" id="1_4a6i6"]
+[ext_resource type="Script" uid="uid://caybfqi2evsnu" path="res://Scripts/background.gd" id="1_as8u8"]
+[ext_resource type="Texture2D" uid="uid://cam8qutbxnvbq" path="res://Sprites/Background_0.png" id="2_h03d7"]
+[ext_resource type="Texture2D" uid="uid://cblbvtme2ea16" path="res://Sprites/Background_1.png" id="3_l8qts"]
+[ext_resource type="Texture2D" uid="uid://d0yr1oodt8lcr" path="res://Sprites/Background_2.png" id="4_xx18q"]
+
+[node name="Background" type="Node2D" unique_id=1149155405]
+script = ExtResource("1_as8u8")
+bg_textures = Array[Texture2D]([ExtResource("2_h03d7"), ExtResource("3_l8qts"), ExtResource("4_xx18q")])
+
+[node name="BaseBackground" type="Sprite2D" parent="." unique_id=2130899831]
+self_modulate = Color(0.72156864, 0.8509804, 0.84313726, 1)
+scale = Vector2(14.999999, 8.437499)
+texture = ExtResource("1_4a6i6")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 128)
+region_filter_clip_enabled = true

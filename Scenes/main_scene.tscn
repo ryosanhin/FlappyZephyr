@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://cv2ek5nxwh3c"]
+
+[ext_resource type="PackedScene" uid="uid://b0wsrg3s68hlp" path="res://Prefabs/background.tscn" id="1_jv6wh"]
+[ext_resource type="PackedScene" uid="uid://dgil0h7m7brl3" path="res://Prefabs/zephyr.tscn" id="3_x6ack"]
+[ext_resource type="Script" uid="uid://djjb6vbqmg5m2" path="res://Scripts/Obstacles/tree_spawner.gd" id="4_maf8m"]
+[ext_resource type="Script" uid="uid://cluelbwetju02" path="res://Scripts/Obstacles/crow_spawner.gd" id="5_huasi"]
+[ext_resource type="PackedScene" uid="uid://dmlnd41lnt0wu" path="res://Prefabs/Obstacles/tree.tscn" id="5_iacmt"]
+[ext_resource type="PackedScene" uid="uid://dngp7rl7m4lxb" path="res://Prefabs/Obstacles/crow.tscn" id="6_6ev3c"]
+[ext_resource type="Script" uid="uid://ctr6r6f3fx3ma" path="res://Scripts/Obstacles/cloud_spawner.gd" id="7_huasi"]
+[ext_resource type="PackedScene" uid="uid://m5md5sjjrekg" path="res://Prefabs/Obstacles/cloud.tscn" id="8_m1efj"]
+[ext_resource type="Script" uid="uid://d3l0s8mx6a24p" path="res://Scripts/ui_constructor.gd" id="9_mai8y"]
+[ext_resource type="PackedScene" uid="uid://cvqcqfdxy1f7l" path="res://Prefabs/heart_ui.tscn" id="10_76v2p"]
+
+[sub_resource type="Curve2D" id="Curve2D_maf8m"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2880, 0, 0, 0, 0, 0, 2880, 720)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_6ev3c"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2880, 0, 0, 0, 0, 0, 2880, 120)
+}
+point_count = 2
+
+[node name="MainScene" type="Node" unique_id=154519622]
+
+[node name="Background" parent="." unique_id=1149155405 instance=ExtResource("1_jv6wh")]
+
+[node name="LightningManager" type="Node" parent="." unique_id=1750780133]
+
+[node name="Zephyr" parent="." unique_id=1091149004 instance=ExtResource("3_x6ack")]
+position = Vector2(700, 589)
+scale = Vector2(-0.2, 0.2)
+
+[node name="TreeSpawner" type="Node" parent="." unique_id=1251205602]
+script = ExtResource("4_maf8m")
+_obstacle = ExtResource("5_iacmt")
+
+[node name="CrowSpawner" type="Node" parent="." unique_id=2075128384 node_paths=PackedStringArray("_obstacle_root")]
+script = ExtResource("5_huasi")
+_obstacle = ExtResource("6_6ev3c")
+_obstacle_root = NodePath(".")
+_obj_count = 3
+_min_interval = 3.0
+_max_interval = 6.0
+
+[node name="Path2D" type="Path2D" parent="CrowSpawner" unique_id=723439256]
+curve = SubResource("Curve2D_maf8m")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="CrowSpawner/Path2D" unique_id=1525214332]
+position = Vector2(2880, 0)
+rotation = 1.5707964
+
+[node name="Timer" type="Timer" parent="CrowSpawner" unique_id=1762686436]
+autostart = true
+
+[node name="CloudSpawner" type="Node" parent="." unique_id=863637437 node_paths=PackedStringArray("_lightning_manager")]
+script = ExtResource("7_huasi")
+_cloud = ExtResource("8_m1efj")
+_lightning_manager = NodePath("../LightningManager")
+_obj_count = 3
+_min_interval = 3.0
+_max_interval = 6.0
+
+[node name="Path2D" type="Path2D" parent="CloudSpawner" unique_id=1298623202]
+curve = SubResource("Curve2D_6ev3c")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="CloudSpawner/Path2D" unique_id=2116547549]
+position = Vector2(2880, 0)
+rotation = 1.5707964
+
+[node name="Timer" type="Timer" parent="CloudSpawner" unique_id=340167719]
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1707198673 node_paths=PackedStringArray("_player")]
+script = ExtResource("9_mai8y")
+_player = NodePath("../Zephyr")
+_heart_ui = ExtResource("10_76v2p")
+
+[connection signal="timeout" from="CrowSpawner/Timer" to="CrowSpawner" method="_on_timer_timeout"]
+[connection signal="timeout" from="CloudSpawner/Timer" to="CloudSpawner" method="_on_timer_timeout"]

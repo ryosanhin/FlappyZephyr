@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://csko4hjumj4ua"]
+
+[ext_resource type="Texture2D" uid="uid://bqtfqvb3c52sf" path="res://Sprites/lightning.svg" id="2_f8q8d"]
+[ext_resource type="Script" uid="uid://nlqfcawktvir" path="res://Scripts/Obstacles/lightning.gd" id="3_j278w"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vu6a5"]
+radius = 16.0
+height = 192.0
+
+[node name="Thunder" type="Area2D" unique_id=1482252853]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("3_j278w")
+_vertical_speed = 200.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=985957774]
+self_modulate = Color(0.8509804, 0.8509804, 0, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("2_f8q8d")
+region_rect = Rect2(128, 0, 128, 128)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1839708181]
+shape = SubResource("CapsuleShape2D_vu6a5")

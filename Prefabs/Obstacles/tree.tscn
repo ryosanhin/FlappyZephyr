@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dmlnd41lnt0wu"]
+
+[ext_resource type="Script" uid="uid://d0pxk5u5biq6b" path="res://Scripts/Obstacles/basic_obstacles.gd" id="1_a4r4k"]
+[ext_resource type="Texture2D" uid="uid://crwm1mphn6is2" path="res://Sprites/tree.png" id="2_ia53f"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ax83n"]
+radius = 86.0
+height = 384.0
+
+[node name="Tree" type="Area2D" unique_id=1482252853]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_a4r4k")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=985957774]
+position = Vector2(0, 128)
+texture = ExtResource("2_ia53f")
+region_rect = Rect2(256, 256, 128, 128)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1839708181]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_ax83n")

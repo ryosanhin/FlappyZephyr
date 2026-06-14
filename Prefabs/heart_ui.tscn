@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cvqcqfdxy1f7l"]
+
+[ext_resource type="Texture2D" uid="uid://ucyw1pwvaja3" path="res://Sprites/heart.svg" id="1_5e7d6"]
+[ext_resource type="Script" uid="uid://v7ts2hnrouhy" path="res://Scripts/heart_ui.gd" id="2_t4866"]
+
+[node name="HeartEdge" type="TextureRect" unique_id=1561072802]
+offset_left = 60.0
+offset_top = 60.0
+offset_right = 188.0
+offset_bottom = 188.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("1_5e7d6")
+script = ExtResource("2_t4866")
+
+[node name="HeartBody" type="TextureRect" parent="." unique_id=1080251703]
+self_modulate = Color(1, 0, 0, 1)
+layout_mode = 1
+offset_right = 128.0
+offset_bottom = 128.0
+scale = Vector2(0.85, 0.8)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("1_5e7d6")

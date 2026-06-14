@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="128.00"
+   height="128.00"
+   viewBox="0.00 0.00 128.00 128.00"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="heart.svg"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="6.1706115"
+     inkscape:cx="56.153268"
+     inkscape:cy="59.718554"
+     inkscape:window-width="2256"
+     inkscape:window-height="1398"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="heart" />
+  <g
+     stroke-linecap="round"
+     id="heart">
+    <path
+       d="M64.00,21.00 C48.00,5.00 24.00,-3.00 8.00,21.00 C-8.00,45.00 8.00,80.00 64.00,125.00 C120.00,80.00 136.00,45.00 120.00,21.00 C104.00,-3.00 80.00,5.00 64.00,21.00 Z"
+       fill="none"
+       stroke="rgb(0, 0, 0)"
+       stroke-width="2.00"
+       stroke-opacity="1.00"
+       stroke-linejoin="round"
+       id="path1"
+       style="fill:#ffffff;fill-opacity:1;stroke-width:2;stroke-dasharray:none" />
+  </g>
+</svg>

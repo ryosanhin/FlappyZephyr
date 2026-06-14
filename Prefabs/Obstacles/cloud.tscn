@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://m5md5sjjrekg"]
+
+[ext_resource type="Script" uid="uid://tvp1v6tetcg3" path="res://Scripts/Obstacles/cloud.gd" id="2_w7qnw"]
+[ext_resource type="PackedScene" uid="uid://csko4hjumj4ua" path="res://Prefabs/Obstacles/lightning.tscn" id="3_isvjs"]
+[ext_resource type="Texture2D" uid="uid://blq1x45pyo4rg" path="res://Sprites/Cloud.png" id="4_r0pgl"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ty7k5"]
+radius = 36.0
+height = 200.0
+
+[node name="Cloud" type="Area2D" unique_id=1482252853]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("2_w7qnw")
+_lightning_prefab = ExtResource("3_isvjs")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=985957774]
+self_modulate = Color(0.3, 0.3, 0.3, 1)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_r0pgl")
+region_rect = Rect2(256, 256, 128, 128)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1839708181]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_ty7k5")
+
+[node name="Timer" type="Timer" parent="." unique_id=1948619728]
+autostart = true
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=788423753]
+position = Vector2(0, 64)
+gizmo_extents = 128.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
