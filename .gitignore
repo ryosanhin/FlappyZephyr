@@ -22,3 +22,6 @@ mono_crash.*.json
 
 # addons
 addons/
+
+# vscode
+.vscode/
