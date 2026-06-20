@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://crha5uingkb30"]
+
+[ext_resource type="Script" uid="uid://ci8e2nvrcl6ry" path="res://Scripts/zephyr.gd" id="1_cqtwu"]
+[ext_resource type="Texture2D" uid="uid://b8705v53vh31o" path="res://Umamusume/Sprites/zephyr/zephyr_body.png" id="3_hiscu"]
+[ext_resource type="Texture2D" uid="uid://blq1x45pyo4rg" path="res://Sprites/Cloud.png" id="3_p2i0v"]
+[ext_resource type="Texture2D" uid="uid://blwlsrtqqgqh4" path="res://Umamusume/Sprites/zephyr/zephyr_hair.png" id="4_fcsdp"]
+[ext_resource type="Texture2D" uid="uid://ddnlhkn3cldd0" path="res://Umamusume/Sprites/zephyr/zephyr_tail.png" id="5_ss0ae"]
+[ext_resource type="Texture2D" uid="uid://3exkj13p46sv" path="res://Umamusume/Sprites/zephyr/zephyr_face_normal.png" id="6_mtmsv"]
+
+[node name="Zephyr" type="CharacterBody2D" unique_id=1091149004]
+script = ExtResource("1_cqtwu")
+
+[node name="Cloud" type="Sprite2D" parent="." unique_id=246781967]
+texture = ExtResource("3_p2i0v")
+
+[node name="Body" type="Polygon2D" parent="Cloud" unique_id=741665666]
+z_index = 1
+position = Vector2(0, -512)
+offset = Vector2(-512, -512)
+texture = ExtResource("3_hiscu")
+polygon = PackedVector2Array(270.65643, 1005.43555, 612.6412, 997.6188, 681.03815, 655.63403, 725.9847, 331.23706, 317.5572, -69.373604, 190.53436, 194.44319, 141.67932, 583.32874)
+uv = PackedVector2Array(270.65643, 1005.43555, 612.6412, 997.6188, 681.03815, 655.63403, 725.9847, 331.23706, 317.5572, -69.373604, 190.53436, 194.44319, 141.67932, 583.32874)
+
+[node name="Hair" type="Polygon2D" parent="Cloud/Body" unique_id=1075852268]
+offset = Vector2(-512, -512)
+texture = ExtResource("4_fcsdp")
+polygon = PackedVector2Array(516.86945, 544.46063, 496.81314, 610.6463, 516.86945, 698.89386, 575.0326, 903.46765, 628.1817, 993.7209, 685.34204, 970.6562, 724.4517, 882.4086, 705.3983, 561.5085, 661.27454, 461.22717)
+uv = PackedVector2Array(516.86945, 544.46063, 496.81314, 610.6463, 516.86945, 698.89386, 575.0326, 903.46765, 628.1817, 993.7209, 685.34204, 970.6562, 724.4517, 882.4086, 705.3983, 561.5085, 661.27454, 461.22717)
+
+[node name="Tail" type="Polygon2D" parent="Cloud/Body" unique_id=1582768690]
+z_index = -1
+offset = Vector2(-512, -512)
+texture = ExtResource("5_ss0ae")
+polygon = PackedVector2Array(704.8107, 853.98926, 554.87854, 796.72876, 536.04285, 824.6056, 549.6045, 878.09894, 627.96106, 919.5375, 780.1535, 928.5786, 853.98944, 887.1401, 826.1126, 821.59186)
+uv = PackedVector2Array(704.8107, 853.98926, 554.87854, 796.72876, 536.04285, 824.6056, 549.6045, 878.09894, 627.96106, 919.5375, 780.1535, 928.5786, 853.98944, 887.1401, 826.1126, 821.59186)
+
+[node name="Face" type="Polygon2D" parent="Cloud/Body" unique_id=696892378]
+offset = Vector2(-512, -512)
+texture = ExtResource("6_mtmsv")
+polygon = PackedVector2Array(276.23566, 299.28775, 227.69952, 429.12192, 271.38202, 631.76025, 357.53363, 664.5222, 447.3255, 623.2665, 482.51422, 505.5663, 442.47186, 296.86096)
+uv = PackedVector2Array(276.23566, 299.28775, 227.69952, 429.12192, 271.38202, 631.76025, 357.53363, 664.5222, 447.3255, 623.2665, 482.51422, 505.5663, 442.47186, 296.86096)

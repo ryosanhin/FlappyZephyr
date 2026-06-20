@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dgil0h7m7brl3"]
 
-[ext_resource type="Script" uid="uid://iy5n684cm3p7" path="res://Scripts/CharacterSprite.cs" id="1_v3rfm"]
+[ext_resource type="Script" uid="uid://ci8e2nvrcl6ry" path="res://Scripts/zephyr.gd" id="1_ghf13"]
 [ext_resource type="Texture2D" uid="uid://cg5w5j2crs7lu" path="res://Umamusume/Sprites/zephyr/209_pieces.png" id="2_ghf13"]
 [ext_resource type="Texture2D" uid="uid://blq1x45pyo4rg" path="res://Sprites/Cloud.png" id="3_ghf13"]
 
@@ -143,13 +143,11 @@ states/End/position = Vector2(523.3334, 100)
 states/Rising/node = SubResource("AnimationNodeAnimation_copy4")
 states/Rising/position = Vector2(380.6667, 167.33334)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kq4mr"]
-radius = 160.0
-height = 640.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_ghf13"]
+radius = 96.0
 
-[node name="Zephyr" type="CharacterBody2D" unique_id=1091149004 node_paths=PackedStringArray("_animationTree")]
-script = ExtResource("1_v3rfm")
-_animationTree = NodePath("AnimationTree")
+[node name="Zephyr" type="CharacterBody2D" unique_id=1091149004]
+script = ExtResource("1_ghf13")
 
 [node name="tail" type="Polygon2D" parent="." unique_id=834085435]
 position = Vector2(-477, -852)
@@ -222,7 +220,7 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1452449928]
 z_index = 1
-position = Vector2(0, -240)
-shape = SubResource("CapsuleShape2D_kq4mr")
+position = Vector2(-24, -144)
+shape = SubResource("CircleShape2D_ghf13")
 
-[connection signal="area_entered" from="Area2D" to="." method="OnArea2dAreaEntered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@export var _player : CharacterSprite
+@export var _player : Zephyr
 @export var _heart_ui: PackedScene
 
 var _heart_ui_list: Array[HeartUI] = []
@@ -17,7 +17,7 @@ func construct(heart_count: int) -> void:
 		add_child(heart_ui)
 		_heart_ui_list.append(heart_ui)
 	
-	_player.Damaged.connect(_on_damaged)
+	_player.damaged.connect(_on_damaged)
 
 func _on_damaged() -> void:
 	if _heart_ui_list.is_empty():

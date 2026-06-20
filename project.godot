@@ -11,12 +11,7 @@ config_version=5
 [application]
 
 config/name="flappy-zephyr"
-config/features=PackedStringArray("4.6", "C#", "GL Compatibility")
-
-[autoload]
-
-FrameProviderDispatcher="*uid://34g3aes7wr4g"
-ObservableTrackerRuntimeHook="*uid://cjcdkqiypl537"
+config/features=PackedStringArray("4.6", "GL Compatibility")
 
 [display]
 
@@ -31,7 +26,7 @@ project/assembly_name="flappy-zephyr"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/R3.Godot/plugin.cfg")
+enabled=PackedStringArray("res://addons/gd_reactive_variables/plugin.cfg")
 
 [layer_names]
 
