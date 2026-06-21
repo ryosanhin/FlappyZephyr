@@ -13,19 +13,20 @@ extends Node
 var _pool: NodePool
 
 func _ready() -> void:
-	_pool = NodePool.new(_obstacle, _obj_count)
+	_pool = NodePool.new(_obstacle, _obj_count, Callable(), _on_get_obstacle, Callable())
 	add_child(_pool)
+
+func _on_get_obstacle(node: Node) -> void:	
+	_path_follow2d.progress_ratio = randf()
+	var init_position := _path_follow2d.position
+	
+	var obstacle := node as Node2D
+	obstacle.position = init_position
 
 func _on_timer_timeout() -> void:
 	_set_random_timer()
+	_pool.get_instance()
 	
-	_path_follow2d.progress_ratio = randf()
-	
-	var init_position := _path_follow2d.position
-	
-	var obstacle := _pool.get_instance(_obstacle_root) as Node2D
-	
-	obstacle.position = init_position
 
 func _set_random_timer() -> void:
 	_timer.wait_time = randf_range(_min_interval, _max_interval)

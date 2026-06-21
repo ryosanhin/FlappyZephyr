@@ -4,7 +4,7 @@
 このPRの目的・変更点などを簡単に記載
 -->
 
-## 関連issue/Linked issues
+## 関連Issue/Linked Issues
 
 <!--
 関連するIssueを記載
