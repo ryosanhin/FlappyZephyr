@@ -61,7 +61,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-0.5235988]
+"values": [0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -73,7 +73,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-0.5235988]
+"values": [0.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -85,7 +85,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-0.5235988]
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_kq4mr"]
@@ -155,16 +155,28 @@ radius = 96.0
 [node name="Zephyr" type="CharacterBody2D" unique_id=1091149004]
 script = ExtResource("1_cqtwu")
 
-[node name="Body" type="Polygon2D" parent="." unique_id=741665666]
+[node name="SpriteRoot" type="Node2D" parent="." unique_id=1556827561]
+
+[node name="Tail" type="Polygon2D" parent="SpriteRoot" unique_id=1582768690]
+position = Vector2(0, -512)
+offset = Vector2(-512, -512)
+texture = ExtResource("5_ss0ae")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(704.8107, 853.98926, 554.87854, 796.72876, 536.04285, 824.6056, 549.6045, 878.09894, 627.96106, 919.5375, 780.1535, 928.5786, 853.98944, 887.1401, 826.1126, 821.59186)
+uv = PackedVector2Array(704.8107, 853.98926, 554.87854, 796.72876, 536.04285, 824.6056, 549.6045, 878.09894, 627.96106, 919.5375, 780.1535, 928.5786, 853.98944, 887.1401, 826.1126, 821.59186)
+bones = ["Spine", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Spine/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Spine/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Spine/Neck/Head/Upper_Hair", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Spine/Neck/Head/Upper_Hair/Lower_Hair", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Spine/Tail", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1)]
+
+[node name="Body" type="Polygon2D" parent="SpriteRoot" unique_id=741665666]
 position = Vector2(0, -512)
 offset = Vector2(-512, -512)
 texture = ExtResource("3_hiscu")
-skeleton = NodePath("../Skeleton2D")
+skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(270.65643, 1005.43555, 612.6412, 997.6188, 681.03815, 655.63403, 725.9847, 331.23706, 317.5572, -69.373604, 190.53436, 194.44319, 141.67932, 583.32874)
 uv = PackedVector2Array(270.65643, 1005.43555, 612.6412, 997.6188, 681.03815, 655.63403, 725.9847, 331.23706, 317.5572, -69.373604, 190.53436, 194.44319, 141.67932, 583.32874)
 bones = ["Spine", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1), "Spine/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Spine/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Spine/Neck/Head/Upper_Hair", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Spine/Neck/Head/Upper_Hair/Lower_Hair", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Spine/Tail", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)]
 
-[node name="Hair" type="Polygon2D" parent="Body" unique_id=1075852268]
+[node name="Hair" type="Polygon2D" parent="SpriteRoot" unique_id=1075852268]
+position = Vector2(0, -512)
 offset = Vector2(-512, -512)
 texture = ExtResource("4_fcsdp")
 skeleton = NodePath("../../Skeleton2D")
@@ -174,16 +186,8 @@ polygons = [PackedInt32Array(10, 0, 1, 2, 3, 4, 5, 6), PackedInt32Array(9, 0, 10
 bones = ["Spine", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Spine/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Spine/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Spine/Neck/Head/Upper_Hair", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "Spine/Neck/Head/Upper_Hair/Lower_Hair", PackedFloat32Array(1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1), "Spine/Tail", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
 internal_vertex_count = 1
 
-[node name="Tail" type="Polygon2D" parent="Body" unique_id=1582768690]
-z_index = -1
-offset = Vector2(-512, -512)
-texture = ExtResource("5_ss0ae")
-skeleton = NodePath("../../Skeleton2D")
-polygon = PackedVector2Array(704.8107, 853.98926, 554.87854, 796.72876, 536.04285, 824.6056, 549.6045, 878.09894, 627.96106, 919.5375, 780.1535, 928.5786, 853.98944, 887.1401, 826.1126, 821.59186)
-uv = PackedVector2Array(704.8107, 853.98926, 554.87854, 796.72876, 536.04285, 824.6056, 549.6045, 878.09894, 627.96106, 919.5375, 780.1535, 928.5786, 853.98944, 887.1401, 826.1126, 821.59186)
-bones = ["Spine", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Spine/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Spine/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Spine/Neck/Head/Upper_Hair", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Spine/Neck/Head/Upper_Hair/Lower_Hair", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Spine/Tail", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1)]
-
-[node name="Face" type="Polygon2D" parent="Body" unique_id=696892378]
+[node name="Face" type="Polygon2D" parent="SpriteRoot" unique_id=696892378]
+position = Vector2(0, -512)
 offset = Vector2(-512, -512)
 texture = ExtResource("6_mtmsv")
 skeleton = NodePath("../../Skeleton2D")
@@ -194,7 +198,7 @@ script = ExtResource("6_fcsdp")
 _normal_face = ExtResource("6_mtmsv")
 _damaged_face = ExtResource("7_ss0ae")
 
-[node name="Timer" type="Timer" parent="Body/Face" unique_id=1940879996]
+[node name="Timer" type="Timer" parent="SpriteRoot/Face" unique_id=1940879996]
 
 [node name="Cloud" type="Sprite2D" parent="." unique_id=246781967]
 texture = ExtResource("3_p2i0v")
@@ -222,12 +226,10 @@ rest = Transform2D(1, 0, 0, 1, 0, -128)
 
 [node name="Upper_Hair" type="Bone2D" parent="Skeleton2D/Spine/Neck/Head" unique_id=944995689]
 position = Vector2(92, 92)
-rotation = -0.5235988
 rest = Transform2D(1, 0, 0, 1, 92, 92)
 
 [node name="Lower_Hair" type="Bone2D" parent="Skeleton2D/Spine/Neck/Head/Upper_Hair" unique_id=1910777203]
 position = Vector2(24, 128)
-rotation = -0.5235988
 rest = Transform2D(1, 0, 0, 1, 24, 128)
 auto_calculate_length_and_angle = false
 length = 64.0
@@ -235,8 +237,6 @@ bone_angle = 84.0
 
 [node name="Tail" type="Bone2D" parent="Skeleton2D/Spine" unique_id=778421555]
 position = Vector2(64, -48)
-rotation = -0.5235988
-scale = Vector2(0.99999976, 0.99999976)
 rest = Transform2D(1, 0, 0, 1, 64, -48)
 auto_calculate_length_and_angle = false
 length = 90.0
@@ -251,6 +251,6 @@ z_index = 1
 position = Vector2(-40, -284)
 shape = SubResource("CircleShape2D_hiscu")
 
-[connection signal="damaged" from="." to="Body/Face" method="_on_zephyr_damaged"]
-[connection signal="timeout" from="Body/Face/Timer" to="Body/Face" method="_on_timer_timeout"]
+[connection signal="damaged" from="." to="SpriteRoot/Face" method="_on_zephyr_damaged"]
+[connection signal="timeout" from="SpriteRoot/Face/Timer" to="SpriteRoot/Face" method="_on_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
