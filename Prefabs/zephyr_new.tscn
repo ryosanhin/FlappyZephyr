@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://crha5uingkb30"]
 
-[ext_resource type="Script" uid="uid://ci8e2nvrcl6ry" path="res://Scripts/zephyr.gd" id="1_cqtwu"]
+[ext_resource type="Script" uid="uid://ci8e2nvrcl6ry" path="res://Scripts/zephyr/zephyr.gd" id="1_cqtwu"]
 [ext_resource type="Texture2D" uid="uid://b8705v53vh31o" path="res://Umamusume/Sprites/zephyr/zephyr_body.png" id="3_hiscu"]
 [ext_resource type="Texture2D" uid="uid://blq1x45pyo4rg" path="res://Sprites/Cloud.png" id="3_p2i0v"]
 [ext_resource type="Texture2D" uid="uid://blwlsrtqqgqh4" path="res://Umamusume/Sprites/zephyr/zephyr_hair.png" id="4_fcsdp"]
 [ext_resource type="Texture2D" uid="uid://ddnlhkn3cldd0" path="res://Umamusume/Sprites/zephyr/zephyr_tail.png" id="5_ss0ae"]
+[ext_resource type="Script" uid="uid://co4iw4x4rtvt0" path="res://Scripts/zephyr/zephyr_face.gd" id="6_fcsdp"]
 [ext_resource type="Texture2D" uid="uid://3exkj13p46sv" path="res://Umamusume/Sprites/zephyr/zephyr_face_normal.png" id="6_mtmsv"]
+[ext_resource type="Texture2D" uid="uid://cbyontcg032me" path="res://Umamusume/Sprites/zephyr/zephyr_face_hit.png" id="7_ss0ae"]
 
 [sub_resource type="Animation" id="Animation_jdim7"]
 resource_name = "descending"
@@ -188,6 +190,11 @@ skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(276.23566, 299.28775, 227.69952, 429.12192, 271.38202, 631.76025, 357.53363, 664.5222, 447.3255, 623.2665, 482.51422, 505.5663, 442.47186, 296.86096)
 uv = PackedVector2Array(276.23566, 299.28775, 227.69952, 429.12192, 271.38202, 631.76025, 357.53363, 664.5222, 447.3255, 623.2665, 482.51422, 505.5663, 442.47186, 296.86096)
 bones = ["Spine", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1), "Spine/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Spine/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Spine/Neck/Head/Upper_Hair", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Spine/Neck/Head/Upper_Hair/Lower_Hair", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Spine/Tail", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)]
+script = ExtResource("6_fcsdp")
+_normal_face = ExtResource("6_mtmsv")
+_damaged_face = ExtResource("7_ss0ae")
+
+[node name="Timer" type="Timer" parent="Body/Face" unique_id=1940879996]
 
 [node name="Cloud" type="Sprite2D" parent="." unique_id=246781967]
 texture = ExtResource("3_p2i0v")
@@ -233,7 +240,7 @@ scale = Vector2(0.99999976, 0.99999976)
 rest = Transform2D(1, 0, 0, 1, 64, -48)
 auto_calculate_length_and_angle = false
 length = 90.0
-bone_angle = 19.999996
+bone_angle = 19.999992
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1952800497]
 collision_layer = 2
@@ -244,4 +251,6 @@ z_index = 1
 position = Vector2(-40, -284)
 shape = SubResource("CircleShape2D_hiscu")
 
+[connection signal="damaged" from="." to="Body/Face" method="_on_zephyr_damaged"]
+[connection signal="timeout" from="Body/Face/Timer" to="Body/Face" method="_on_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
