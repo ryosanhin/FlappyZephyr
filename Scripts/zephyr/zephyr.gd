@@ -10,7 +10,12 @@ const _gravity: float = 1000
 
 var _vertical_speed := ReactiveVariable.new(0.0)
 
-var _damage_cool_time := false
+var _is_damage_cool_time := false
+
+const _damage_interval := 1.5
+var damage_interval: float:
+	get:
+		return _damage_interval
 
 func _ready() -> void:
 	_state_machine = _animation_tree.get("parameters/playback")
@@ -41,13 +46,12 @@ func _process(delta: float) -> void:
 	move_and_slide()
 
 func _hit_animation_async():
-	_damage_cool_time = true
+	_is_damage_cool_time = true
 	
 	var default_color := modulate
 	
-	const damage_interval := 1.5
 	const lap_counts := 15.0
-	const lap_times := damage_interval/lap_counts
+	const lap_times := _damage_interval/lap_counts
 	
 	var tween := create_tween()
 	
@@ -66,12 +70,11 @@ func _hit_animation_async():
 	tween.set_loops(lap_counts as int)
 	
 	await tween.finished
-	
 	modulate = default_color
-	_damage_cool_time = false
+	_is_damage_cool_time = false
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if _damage_cool_time:
+	if _is_damage_cool_time:
 		return
 	damaged.emit()
 	await _hit_animation_async()

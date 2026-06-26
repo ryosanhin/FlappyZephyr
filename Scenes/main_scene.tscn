@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cv2ek5nxwh3c"]
 
 [ext_resource type="PackedScene" uid="uid://b0wsrg3s68hlp" path="res://Prefabs/background.tscn" id="1_jv6wh"]
-[ext_resource type="PackedScene" uid="uid://dgil0h7m7brl3" path="res://Prefabs/zephyr.tscn" id="3_x6ack"]
 [ext_resource type="Script" uid="uid://djjb6vbqmg5m2" path="res://Scripts/Obstacles/tree_spawner.gd" id="4_maf8m"]
 [ext_resource type="Script" uid="uid://cluelbwetju02" path="res://Scripts/Obstacles/crow_spawner.gd" id="5_huasi"]
 [ext_resource type="PackedScene" uid="uid://dmlnd41lnt0wu" path="res://Prefabs/Obstacles/tree.tscn" id="5_iacmt"]
@@ -10,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://m5md5sjjrekg" path="res://Prefabs/Obstacles/cloud.tscn" id="8_m1efj"]
 [ext_resource type="Script" uid="uid://d3l0s8mx6a24p" path="res://Scripts/ui_constructor.gd" id="9_mai8y"]
 [ext_resource type="PackedScene" uid="uid://cvqcqfdxy1f7l" path="res://Prefabs/heart_ui.tscn" id="10_76v2p"]
+[ext_resource type="PackedScene" uid="uid://crha5uingkb30" path="res://Prefabs/zephyr_new.tscn" id="11_76v2p"]
 
 [sub_resource type="Curve2D" id="Curve2D_maf8m"]
 _data = {
@@ -29,9 +29,10 @@ point_count = 2
 
 [node name="LightningManager" type="Node" parent="." unique_id=1750780133]
 
-[node name="Zephyr" parent="." unique_id=1091149004 instance=ExtResource("3_x6ack")]
-position = Vector2(700, 589)
-scale = Vector2(-0.2, 0.2)
+[node name="Zephyr" parent="." unique_id=1461370097 instance=ExtResource("11_76v2p")]
+position = Vector2(700, 600)
+rotation = -3.1415927
+scale = Vector2(0.2, -0.2)
 
 [node name="TreeSpawner" type="Node" parent="." unique_id=1251205602]
 script = ExtResource("4_maf8m")

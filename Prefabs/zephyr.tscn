@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dgil0h7m7brl3"]
 
-[ext_resource type="Script" uid="uid://ci8e2nvrcl6ry" path="res://Scripts/zephyr.gd" id="1_ghf13"]
+[ext_resource type="Script" uid="uid://ci8e2nvrcl6ry" path="res://Scripts/zephyr/zephyr.gd" id="1_ghf13"]
 [ext_resource type="Texture2D" uid="uid://cg5w5j2crs7lu" path="res://Umamusume/Sprites/zephyr/209_pieces.png" id="2_ghf13"]
 [ext_resource type="Texture2D" uid="uid://blq1x45pyo4rg" path="res://Sprites/Cloud.png" id="3_ghf13"]
 
@@ -181,7 +181,7 @@ rest = Transform2D(1, 0, 0, 1, 0, 0)
 [node name="head" type="Bone2D" parent="Skeleton2D/hip" unique_id=1609089027]
 position = Vector2(-4, -446)
 rotation = -0.2617994
-scale = Vector2(0.9999991, 0.9999991)
+scale = Vector2(0.99999887, 0.99999887)
 rest = Transform2D(1, 0, 0, 1, -4, -446)
 
 [node name="hair" type="Bone2D" parent="Skeleton2D/hip/head" unique_id=1628172982]
